@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>User Information Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #sidebar {
+            width: 180px;
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-right: 1px solid #ccc;
+        }
+
+        #top-menu {
+            height: 60px;
+            background-color: #343a40;
+            color: white;
+            display: flex;
+            align-items: center;
+            padding: 0 15px;
+            width: 100%;
+        }
+
+        #main {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #content {
+            flex-grow: 1;
+            padding: 15px;
+        }
+
+        .table th, .table td {
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+
+<div id="sidebar">
+    <div class="list-group">
+        <a href="#" class="list-group-item list-group-item-action active">User</a>
+    </div>
+</div>
+
+<div id="main">
+    <div id="top-menu">
+        <h5>User information-page</h5>
+        <a th:href="@{/logout}" class="btn btn-danger ms-auto">Logout</a>
+    </div>
+    <div id="content" class="container-fluid">
+        <h5 class="mb-3">About user</h5>
+        <table class="table table-bordered table-striped">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Age</th>
+                <th>Email</th>
+                <th>Role</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td th:text="${user.id}"></td>
+                <td th:text="${user.name}"></td>
+                <td th:text="${user.lastName}"></td>
+                <td th:text="${user.age}"></td>
+                <td th:text="${user.email}"></td>
+                <td th:text="${user.role}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
