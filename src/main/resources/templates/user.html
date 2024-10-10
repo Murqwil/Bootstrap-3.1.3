@@ -7,81 +7,64 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            display: flex;
-            height: 100vh;
-            margin: 0;
-        }
-
-        #sidebar {
-            width: 180px;
             background-color: #f8f9fa;
-            padding: 15px;
-            border-right: 1px solid #ccc;
         }
-
-        #top-menu {
-            height: 60px;
-            background-color: #343a40;
-            color: white;
-            display: flex;
-            align-items: center;
-            padding: 0 15px;
-            width: 100%;
+        .container-fluid {
+            margin-top: 20px;
         }
-
-        #main {
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        #content {
-            flex-grow: 1;
-            padding: 15px;
-        }
-
         .table th, .table td {
             vertical-align: middle;
+        }
+        .btn-logout {
+            margin-left: auto;
+            display: block;
         }
     </style>
 </head>
 <body>
-
-<div id="sidebar">
-    <div class="list-group">
-        <a href="#" class="list-group-item list-group-item-action active">User</a>
+<nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+        <span class="navbar-text">
+            user@mail.ru with roles: USER
+        </span>
+        <a href="/logout" class="btn btn-outline-light">Logout</a>
     </div>
-</div>
-
-<div id="main">
-    <div id="top-menu">
-        <h5>User information-page</h5>
-        <a th:href="@{/logout}" class="btn btn-danger ms-auto">Logout</a>
-    </div>
-    <div id="content" class="container-fluid">
-        <h5 class="mb-3">About user</h5>
-        <table class="table table-bordered table-striped">
-            <thead>
-            <tr>
-                <th>ID</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Age</th>
-                <th>Email</th>
-                <th>Role</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td th:text="${user.id}"></td>
-                <td th:text="${user.name}"></td>
-                <td th:text="${user.lastName}"></td>
-                <td th:text="${user.age}"></td>
-                <td th:text="${user.email}"></td>
-                <td th:text="${user.role}"></td>
-            </tr>
-            </tbody>
-        </table>
+</nav>
+<div class="container-fluid mt-3">
+    <div class="row">
+        <div class="col-md-2">
+            <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action active">User</a>
+            </div>
+        </div>
+        <div class="col-md-10">
+            <h3>User Information</h3>
+            <div id="content" class="mt-3">
+                <h5 class="mb-3">About User</h5>
+                <table class="table table-bordered table-striped">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Age</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td th:text="${user.id}"></td>
+                        <td th:text="${user.name}"></td>
+                        <td th:text="${user.lastName}"></td>
+                        <td th:text="${user.age}"></td>
+                        <td th:text="${user.email}"></td>
+                        <td th:text="${user.role}"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </div>
 
