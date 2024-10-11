@@ -32,12 +32,17 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public void removeUserById(Integer id) {
-        userRepository.deleteById(id);
+    public void removeUser(User user) {
+        userRepository.delete(user);
     }
 
     @Override
     public User saveUser(User user) {
         return userRepository.save(user);
+    }
+
+    @Override
+    public User getUserByEmail(String email) {
+        return userRepository.findByEmail(email);
     }
 }

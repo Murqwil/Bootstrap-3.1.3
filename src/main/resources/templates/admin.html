@@ -17,14 +17,14 @@
             text-align: center;
             display: block;
         }
-        .form-control {
+        .form-control, .form-select {
             max-width: 300px;
             margin: 0 auto;
         }
         .btn-success {
-            width: auto; /* Изменяем ширину кнопки на авто */
-            margin: 20px auto; /* Центрируем кнопку */
-            display: block; /* Делаем кнопку блочным элементом */
+            width: auto;
+            margin: 20px auto;
+            display: block;
         }
         .form-group {
             text-align: center;
@@ -57,7 +57,7 @@
                     </div>
                     <div class="mb-3 form-group">
                         <label for="role" class="form-label">Role</label>
-                        <select class="form-select" id="role" name="role" style="max-width: 300px; margin: 0 auto;">
+                        <select class="form-select" id="role" name="role">
                             <option value="ADMIN">ADMIN</option>
                             <option value="USER">USER</option>
                         </select>
@@ -228,6 +228,10 @@
                     <div class="mb-3">
                         <label for="userEmail" class="form-label">Email</label>
                         <input type="email" class="form-control" id="userEmail" name="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="userPassword" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="userPassword" name="password">
                     </div>
                     <div class="mb-3">
                         <label for="userRole" class="form-label">Role</label>

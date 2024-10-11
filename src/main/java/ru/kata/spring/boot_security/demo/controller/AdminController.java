@@ -5,7 +5,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ru.kata.spring.boot_security.demo.model.User;
-import ru.kata.spring.boot_security.demo.repository.UserRepository;
 import ru.kata.spring.boot_security.demo.service.UserService;
 
 import java.util.List;
@@ -14,20 +13,18 @@ import java.util.List;
 @RequestMapping("/admin")
 public class AdminController {
 
-    private final UserRepository userRepository;
     private final UserService userService;
 
     @Autowired
-    public AdminController(UserRepository userRepository, UserService userService) {
-        this.userRepository = userRepository;
+    public AdminController(UserService userService) {
         this.userService = userService;
     }
 
     @GetMapping
     public String user(Model model) {
-        List<User> users = userRepository.findAll();
+        List<User> users = userService.getAllUsers();
         model.addAttribute("users", users);
-        User currentUser = userRepository.findByEmail("admin");
+        User currentUser = userService.getUserByEmail("admin");
         model.addAttribute("user", currentUser);
         return "admin";
     }
@@ -40,7 +37,7 @@ public class AdminController {
 
     @PostMapping("/delete/{id}")
     public String deleteUser(@ModelAttribute User user) {
-        userRepository.delete(user);
+        userService.removeUser(user);
         return "redirect:/admin";
     }
 

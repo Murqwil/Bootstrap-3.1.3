@@ -9,7 +9,9 @@ public interface UserService {
 
     User updateUserById (Integer id,User userProperty);
 
-    void removeUserById (Integer id);
+    void removeUser (User user);
 
     User saveUser (User user);
+
+    User getUserByEmail(String email);
 }
